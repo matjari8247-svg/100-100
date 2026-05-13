@@ -741,79 +741,33 @@
   button {
     cursor: pointer;
   }
-  [class*="border"] {
-    @apply border-border;
-  }
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    border-color: var(--border);
+    outline-color: var(--ring);
   }
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     scrollbar-gutter: stable;
   }
 }
 
-html body[data-scroll-locked] {
-  overflow-y: scroll !important;
-  --removed-body-scroll-bar-size: 0 !important;
-  margin-right: 0 !important;
-}
-
 .hide-scrollbar {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE 10+ */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
-
 .hide-scrollbar::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
-}
-
-html body[data-scroll-locked] {
-  overflow-y: scroll !important;
-  --removed-body-scroll-bar-size: 0 !important;
-  margin-right: 0 !important;
-  &#explorer {
-    margin-top: 0px !important;
-  }
-  #wrapper {
-    margin-top: 60px !important;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+  display: none;
 }
 
 @layer utilities {
-  .perspective-distant {
-    perspective: 1000px;
-  }
-  
-  .transform-3d {
-    transform-style: preserve-3d;
-  }
-  
-  .backface-hidden {
-    backface-visibility: hidden;
-  }
-  
-  .rotate-y-180 {
-    transform: rotateY(180deg);
-  }
-  
-  .group-hover\/kibo-credit-card\:-rotate-y-180:hover {
-    transform: rotateY(180deg);
-  }
-  
-  .group-hover\/kibo-credit-card\:shadow-lg:hover {
-    box-shadow: var(--shadow-lg);
-  }
+  .perspective-distant { perspective: 1000px; }
+  .transform-3d { transform-style: preserve-3d; }
+  .backface-hidden { backface-visibility: hidden; }
 }
